@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy — Baseline Stock Monitor</title>
+    <title>Privacy Policy — Baseline Collection Checker</title>
     <meta name="robots" content="noindex" />
     <style>
       :root { color-scheme: light dark; }
@@ -30,19 +30,18 @@
         padding: 16px 16px;
         margin-top: 14px;
       }
-      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
     </style>
   </head>
 
   <body>
     <main class="wrap">
       <h1>Privacy Policy</h1>
-      <p class="muted"><strong>Baseline Stock Monitor</strong></p>
+      <p class="muted"><strong>Baseline Collection Checker</strong></p>
 
       <div class="card">
         <p>
-          Baseline Stock Monitor is an app designed to help merchants manually identify and track products
-          that reach zero stock inside their store.
+          Baseline Collection Checker is an app designed to help merchants manually identify
+          products that are not assigned to any collection in their store.
         </p>
       </div>
 
@@ -51,8 +50,8 @@
       <h2>Data Access</h2>
       <p>The app accesses the following store data through the Shopify Admin API:</p>
       <ul>
-        <li>Product and variant information (read-only)</li>
-        <li>Inventory levels per location (read-only)</li>
+        <li>Product information (read-only)</li>
+        <li>Collection assignments (read-only)</li>
         <li>Store identification information required for authentication</li>
       </ul>
       <p>The app does not access customer data, orders, or payment information.</p>
@@ -61,11 +60,13 @@
 
       <h2>Data Usage</h2>
       <p>
-        Inventory data is accessed only when a merchant manually initiates a scan inside the app.
-        During a scan, the app reads only variant inventory quantities per location to determine whether items are at zero stock.
-        If a zero-stock condition is detected, an event record is created for tracking purposes.
+        Product and collection data is accessed only when a merchant manually initiates a scan inside the app.
+        During a scan, the app checks whether products are assigned to any collections.
+        If a product has no collection assignment, an event record may be created for tracking purposes.
       </p>
-      <p>No automatic scans, background monitoring, or scheduled jobs are performed.</p>
+      <p>
+        No automatic scans, background monitoring, or scheduled jobs are performed.
+      </p>
 
       <hr />
 
@@ -73,9 +74,9 @@
       <p>The app stores minimal operational data required for functionality, including:</p>
       <ul>
         <li>Store identifier</li>
-        <li>Inventory event records (product ID, variant ID, SKU, vendor, location ID)</li>
-        <li>Event timestamps (first seen, last seen, resolved date if restocked)</li>
-        <li>Vendor exclusion settings (if configured by the merchant)</li>
+        <li>Missing-collection event records (product ID, SKU, vendor)</li>
+        <li>Event timestamps (first detected, last checked, resolved date if assigned later)</li>
+        <li>Scan rule settings (if configured by the merchant)</li>
       </ul>
       <p>
         This data is used solely to support event history, filtering, and CSV export features.
@@ -88,11 +89,11 @@
       <hr />
 
       <h2>Data Modification</h2>
-      <p>Baseline Stock Monitor is a read-only app. It does not modify:</p>
+      <p>Baseline Collection Checker is a read-only app. It does not modify:</p>
       <ul>
-        <li>Inventory quantities</li>
         <li>Products</li>
-        <li>Variants</li>
+        <li>Collections</li>
+        <li>Inventory</li>
         <li>Orders</li>
         <li>Store settings</li>
       </ul>
